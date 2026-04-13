@@ -235,9 +235,15 @@ body {
     flex: 1 1 200px; /* 4 columns that will auto-wrap on mobile */
 }
 
-.footer-col h4 { margin-bottom: 15px; }
-.footer-col ul { list-style: none; }
-.footer-col a { color: white; text-decoration: none; font-size: 0.9rem; }
+.footer-col h4 { 
+    margin-bottom: 15px; 
+}
+.footer-col ul { 
+    list-style: none; 
+}
+.footer-col a { 
+    color: white; text-decoration: none; font-size: 0.9rem; 
+}
 .footer-logo-circle {
     width: 120px; 
     height: 120px;
