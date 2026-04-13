@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Crucial for preventing width overflow */
+    box-sizing: border-box;
 }
 
 body {
@@ -27,13 +27,12 @@ body {
     width: 100%;
 }
 
-
    /* 2. FLEXBOX UTILITIES */
 
 .flex-row {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; /* Allows wrapping on small screens */
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -118,7 +117,9 @@ body {
 
    /* 4. HERO & ENROLLMENT BANNER */
 
-.hero-mural { width: 100%; }
+.hero-mural { 
+    width: 100%; 
+}
 
 .enrollment-banner {
     padding: 40px 0;
@@ -229,7 +230,9 @@ body {
     padding: 50px 0 20px 0;
 }
 
-.footer-blocks { gap: 30px; }
+.footer-blocks { 
+    gap: 30px; 
+}
 
 .footer-col {
     flex: 1 1 200px; /* 4 columns that will auto-wrap on mobile */
@@ -238,12 +241,15 @@ body {
 .footer-col h4 { 
     margin-bottom: 15px; 
 }
+
 .footer-col ul { 
     list-style: none; 
 }
+
 .footer-col a { 
     color: white; text-decoration: none; font-size: 0.9rem; 
 }
+
 .footer-logo-circle {
     width: 120px; 
     height: 120px;
@@ -252,7 +258,6 @@ body {
     display: flex; justify-content: center; align-items: center;
     font-weight: bold;
 }
-
 
    /* 8. MOBILE RESPONSIVENESS OVERRIDES */
 
