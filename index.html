@@ -1,151 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>FCPC - First City Providential College</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <div class="top-bar">
-        <div class="container flex-row space-between align-center wrap-mobile">
-            <div class="contact-info">
-                <span>📞 +63 917 777 5989</span>
-                <span>✉️ info@fcpc.edu.ph</span>
-            </div>
-            <div class="top-actions">
-                <a href="#" class="btn-enroll-yellow">Enroll Now!</a>
+    <div class="site-wrapper">
+        
+        <div class="top-bar">
+            <div class="container top-bar-grid">
+                <div class="contact-info">
+                    <span>📞 +63 917 777 5989</span>
+                    <span>✉️ info@fcpc.edu.ph</span>
+                </div>
+                <div class="top-actions">
+                    <button id="theme-toggle" class="btn-theme">🌙 Dark Mode</button>
+                    <a href="#" class="btn-enroll-yellow">Enroll Now!</a>
+                </div>
             </div>
         </div>
+
+        <header class="main-header">
+            <div class="container header-grid">
+                <div class="logo-area">
+                    <img src="images/logo_fcpc.jpg" alt="FCPC Logo" class="header-logo">
+                    <div class="logo-text-box">
+                        <h1 class="logo-text">FCPC</h1>
+                        <span class="logo-subtext">First City Providential College</span>
+                    </div>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-grid">
+                        <li><a href="#">Home</a></li>
+                        <li class="dropdown">
+                            <span class="drop-label">About</span>
+                            <div class="dropdown-content">
+                                <a href="#">Vision and Mission</a>
+                                <a href="#">Goals and Objective</a>
+                                <a href="#">Loyalty Hymn</a>
+                                <a href="#">FCPCian's Creed</a>
+                                <a href="#">Core Values</a>
+                            </div>
+                        </li>
+                        <li><a href="#">Programs</a></li>
+                        <li><a href="#">The Legacy</a></li>
+                        <li class="dropdown">
+                            <span class="drop-label">Admission</span>
+                            <div class="dropdown-content">
+                                <a href="#">Local Admission</a>
+                            </div>
+                        </li>
+                        <li><a href="#">International Students</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero-mural">
+                <img src="images/logo_fcpc.jpg" alt="FCPC Mural" class="hero-img">
+            </section>
+
+            <section class="enrollment-banner">
+                <div class="container banner-grid">
+                    <div class="banner-image">
+                        <h2>TERTIARY EDUCATION</h2>
+                    </div>
+                    <div class="banner-text">
+                        <h3>2ND SEMESTER ENROLLMENT IS ONGOING!</h3>
+                        <p>We accept Transferees, Continuing Students, New Students, and Returning Students to join our academic community.</p>
+                        <a href="#" class="btn-yellow-outline">View Details</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="news-section">
+                <div class="container">
+                    <h2 class="section-title">NEWS</h2>
+                    
+                    <div class="up-layout-grid">
+                        <article class="news-card featured-card">
+                            <img src="images/logo_fcpc.jpg" alt="Prisaa">
+                            <div class="card-content">
+                                <h4>FIRST CITY PROVIDENTIAL COLLEGE TRIUMPHS AT PRISAA REGIONALS</h4>
+                                <p>First City Providential College (FCPC) has demonstrated exceptional prowess in the recent regional events, securing top spots in both academic and athletic competitions. The commitment to excellence remains steadfast.</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </article>
+
+                        <div class="side-cards-grid">
+                            <article class="news-card small-card">
+                                <img src="images/logo_fcpc.jpg" alt="Bulsu">
+                                <div class="card-content">
+                                    <h4>BULACAN STATE UNIVERSITY AND FCPC PARTNERSHIP</h4>
+                                    <p>In a significant step towards strengthening global educational ties and local opportunities.</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </article>
+
+                            <article class="news-card small-card">
+                                <img src="images/logo_fcpc.jpg" alt="Net25">
+                                <div class="card-content">
+                                    <h4>FCPC FEATURED ON NET25'S LOVE, TONIPET</h4>
+                                    <p>First City Providential College (FCPC) was featured on national television for its programs.</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </article>
+                            
+                            <article class="news-card small-card">
+                                <img src="images/logo_fcpc.jpg" alt="Adopted School">
+                                <div class="card-content">
+                                    <h4>SAN JOSE DEL MONTE NHS BECOMES ADOPTED SCHOOL</h4>
+                                    <p>In a significant educational partnership to support the local youth.</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="events-section">
+                <div class="container">
+                    <h2 class="section-title text-left">EVENTS</h2>
+                    
+                    <div class="up-layout-grid">
+                        <article class="event-card featured-event">
+                            <img src="images/logo_fcpc.jpg" alt="Event Cover">
+                            <div class="event-details">
+                                <span class="event-date">Nov 7-8</span>
+                                <h4>1st Periodic Audit & Campus Assessment</h4>
+                                <p>Ensuring our quality management systems remain at the highest standard for the academic year.</p>
+                            </div>
+                        </article>
+
+                        <div class="side-cards-grid">
+                            <div class="event-list-item">
+                                <div class="event-date-box">Nov 12</div>
+                                <div>
+                                    <h4>Senior High School Intramurals</h4>
+                                    <p>Annual athletic competitions.</p>
+                                </div>
+                            </div>
+                            <div class="event-list-item">
+                                <div class="event-date-box">Nov 21</div>
+                                <div>
+                                    <h4>Junior High School Intramurals</h4>
+                                    <p>Sportsmanship and camaraderie.</p>
+                                </div>
+                            </div>
+                            <div class="event-list-item">
+                                <div class="event-date-box">Nov 30</div>
+                                <div>
+                                    <h4>Alumni League Kick-Off</h4>
+                                    <p>Welcoming back our graduates.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo_fcpc.jpg" alt="Footer Logo" class="footer-logo">
+                    <h4>First City Providential College</h4>
+                    <p>City of San Jose del Monte,<br>Bulacan, Philippines</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Useful Links</h4>
+                    <a href="#">Associate Portal</a>
+                    <a href="#">ESS Portal</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>📞 +63 917 777 5989</p>
+                    <p>✉️ info@fcpc.edu.ph</p>
+                </div>
+            </div>
+        </footer>
+
+        <button id="scroll-top" aria-label="Scroll to top">↑</button>
     </div>
 
-    <header class="main-header">
-        <div class="container flex-row space-between align-center wrap-mobile">
-            <div class="logo-area">
-                <h1 class="logo-text">FCPC</h1>
-                <span class="logo-subtext">First City Providential College</span>
-            </div>
-            
-            <nav class="main-nav">
-                <ul class="flex-row">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Programs</a></li>
-                    <li><a href="#">The Legacy</a></li>
-                    <li><a href="#">Admission</a></li>
-                    <li><a href="#">International Students</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero-mural">
-        <img src="images/background_fcpc.jpg" alt="FCPC Mural" class="responsive-img">
-    </section>
-
-    <section class="enrollment-banner">
-        <div class="container flex-row wrap-mobile banner-box">
-            <div class="banner-image flex-center">
-                <h2>TERTIARY EDUCATION ENROLLMENT</h2>
-            </div>
-            <div class="banner-text">
-                <h3>THE TERTIARY LEVEL 2ND SEMESTER ENROLLMENT IS ONGOING!</h3>
-                <p>We accept Transferees, Continuing Students, New Students, Returning Students...</p>
-                <a href="#" class="btn-yellow-outline">View More</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="news-section">
-        <div class="container">
-            <h2 class="section-title">NEWS</h2>
-            
-            <div class="news-wrapper flex-row">
-                
-                <article class="news-card flex-col">
-                    <img src="images/logo_fcpc.jpg" alt="Prisaa" class="responsive-img">
-                    <div class="card-content flex-col grow-1">
-                        <h4>FIRST CITY PROVIDENTIAL COLLEGE TRIUMPHS AT PRISAA...</h4>
-                        <p>First City Providential College (FCPC) has demonstrated exceptional prowess...</p>
-                    </div>
-                </article>
-
-                <article class="news-card flex-col">
-                    <img src="images/logo_fcpc.jpg" alt="Bulsu" class="responsive-img">
-                    <div class="card-content flex-col grow-1">
-                        <h4>BULACAN STATE UNIVERSITY AND FCPC PARTNERSHIP</h4>
-                        <p>In a significant step towards strengthening global educational ties...</p>
-                    </div>
-                </article>
-
-                <article class="news-card flex-col">
-                    <img src="images/logo_fcpc.jpg" alt="Net25" class="responsive-img">
-                    <div class="card-content flex-col grow-1">
-                        <h4>FCPC FEATURED ON NET25'S LOVE, TONIPET...</h4>
-                        <p>First City Providential College (FCPC) was featured on NET25's...</p>
-                    </div>
-                </article>
-
-                <article class="news-card flex-col">
-                    <img src="images/logo_fcpc.jpg" alt="Adopted School" class="responsive-img">
-                    <div class="card-content flex-col grow-1">
-                        <h4>SAN JOSE DEL MONTE NATIONAL HIGH SCHOOL BECOMES...</h4>
-                        <p>In a significant educational partnership...</p>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="events-section">
-        <div class="container">
-            <h2 class="section-title text-left">EVENTS</h2>
-            <div class="events-wrapper flex-row">
-                <div class="event-item">
-                    <strong>November 7-8, 2024</strong>
-                    <p>1st Periodic Audit</p>
-                </div>
-                <div class="event-item">
-                    <strong>November 12, 2024</strong>
-                    <p>Senior High School Intramurals</p>
-                </div>
-                <div class="event-item">
-                    <strong>November 21, 2024</strong>
-                    <p>Junior High School Intramurals</p>
-                </div>
-                <div class="event-item">
-                    <strong>November 30, 2024</strong>
-                    <p>Alumni League Kick-Off</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="container flex-row wrap-mobile footer-blocks">
-            <div class="footer-col flex-center">
-                <div class="footer-logo-circle">LOGO</div>
-            </div>
-            <div class="footer-col">
-                <h4>First City Providential College</h4>
-                <p>City of San Jose del Monte,<br>Bulacan, Philippines</p>
-            </div>
-            <div class="footer-col">
-                <h4>Useful Links</h4>
-                <ul>
-                    <li><a href="#">Associate Portal</a></li>
-                    <li><a href="#">ESS Portal</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Us</h4>
-                <p>Mobile: +63 917 777 5989</p>
-                <p>Email: info@fcpc.edu.ph</p>
-            </div>
-        </div>
-    </footer>
-
+    <script src="js/main.js"></script>
 </body>
 </html>
