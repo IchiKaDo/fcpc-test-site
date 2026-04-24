@@ -21,8 +21,8 @@
 }
 
 [data-theme="dark"] {
-    --primary: #0a192f;
-    --secondary: #112240;
+    --primary: #013999;
+    --secondary: #4084fa;
     --bg-main: #0f172a;
     --bg-section: #1e293b;
     --bg-card: #1e293b;
@@ -75,6 +75,17 @@ a {
 }
 
 a:hover {
+    color: var(--accent);
+}
+
+.element:hover { transition-delay: 0.3s; transform: scale(1.1); }
+
+/* Links of most white links(Header & Footer) */
+.info-links {
+    color: #ffffff;
+}
+
+.info-links:hover {
     color: var(--accent);
 }
 
@@ -179,7 +190,8 @@ a:hover {
 .dropdown {
     position: relative;
     cursor: pointer;
-    padding: 10px 0;
+    color: var(--text-main);
+    font-weight: bold;
 }
 
 .dropdown-content {
@@ -192,6 +204,10 @@ a:hover {
     min-width: 220px;
     border-radius: 4px;
     z-index: 101;
+}
+
+.drop-label:hover {
+    color: var(--accent);
 }
 
 .dropdown:hover .dropdown-content {
@@ -270,7 +286,7 @@ a:hover {
     padding-bottom: 10px;
 }
 
-/* The Core Asymmetrical Container */
+/*Asymmetrical Container */
 .up-layout-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
