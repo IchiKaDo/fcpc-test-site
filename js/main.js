@@ -36,3 +36,29 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.animate-on-scroll').forEach((el) => {
     observer.observe(el);
 });
+
+
+// New lines here
+
+// CHANGED: 4. Mobile Navigation Menu Toggle Logic
+const mobileToggle = document.querySelector('.mobile-toggle');
+const navGrid = document.querySelector('.nav-grid');
+
+mobileToggle.addEventListener('click', () => {
+    // Toggles the visibility of the nav menu
+    navGrid.classList.toggle('show-menu');
+});
+
+// CHANGED: 5. Mobile Dropdown Interaction Logic
+const dropdowns = document.querySelectorAll('.dropdown');
+
+dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', (e) => {
+        // Prevent the click from immediately closing if clicking inside the link
+        if(e.target.tagName !== 'A') {
+            e.preventDefault(); 
+            // Toggle the 'active' class to rotate caret and expand content
+            dropdown.classList.toggle('active');
+        }
+    });
+});

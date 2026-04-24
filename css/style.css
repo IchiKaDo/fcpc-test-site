@@ -1,3 +1,6 @@
+/* ==================================================
+   1. VARIABLES & THEMING
+   ================================================== */
 :root {
     --primary: #002366;
     --secondary: #004aad;
@@ -32,6 +35,9 @@
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
 }
 
+/* ==================================================
+   2. GLOBAL RESETS & TYPOGRAPHY
+   ================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -43,11 +49,13 @@ body {
     background-color: var(--bg-main);
     color: var(--text-main);
     transition: background-color var(--transition), color var(--transition);
+    overflow-x: hidden; 
+    position: relative;
 }
 
-/* FIX: This wrapper prevents the iPhone SE horizontal scroll wobble */
+/* Prevents horizontal scrolling/wobbling on narrow mobile devices */
 .site-wrapper {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     width: 100%;
 }
 
@@ -78,17 +86,17 @@ a:hover {
     color: var(--accent);
 }
 
-.element:hover { transition-delay: 0.3s; transform: scale(1.1); }
-
-/* Links of most white links(Header & Footer) */
 .info-links {
-    color: #ffffff;
+    color: var(--text-light);
 }
 
 .info-links:hover {
     color: var(--accent);
 }
 
+/* ==================================================
+   3. BUTTONS
+   ================================================== */
 .btn-enroll-yellow, .btn-yellow-outline, .btn-theme {
     background-color: var(--accent);
     color: #111;
@@ -118,7 +126,9 @@ a:hover {
     color: #111;
 }
 
-/* Header & Nav */
+/* ==================================================
+   4. HEADER & NAVIGATION
+   ================================================== */
 .top-bar {
     background-color: var(--primary);
     color: var(--text-light);
@@ -133,13 +143,15 @@ a:hover {
     gap: 15px;
 }
 
+
 .main-header {
     background-color: var(--bg-nav);
     padding: 15px 0;
     box-shadow: var(--shadow);
     position: sticky;
+    position: -webkit-sticky; /* Support for Safari */
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .header-grid {
@@ -187,6 +199,12 @@ a:hover {
     font-size: 0.95rem;
 }
 
+/* Desktop Hidden Hamburger */
+.mobile-toggle {
+    display: none;
+}
+
+/* Dropdown Animation & Layout */
 .dropdown {
     position: relative;
     cursor: pointer;
@@ -194,8 +212,21 @@ a:hover {
     font-weight: bold;
 }
 
+.drop-label:hover {
+    color: var(--accent);
+}
+
+.caret {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.active .caret {
+    transform: rotate(180deg);
+}
+
+/* Dropdown container relies on max-height for smooth opening/closing */
 .dropdown-content {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -204,14 +235,10 @@ a:hover {
     min-width: 220px;
     border-radius: 4px;
     z-index: 101;
-}
-
-.drop-label:hover {
-    color: var(--accent);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0;
 }
 
 .dropdown-content a {
@@ -220,6 +247,15 @@ a:hover {
     border-bottom: 1px solid var(--bg-main);
 }
 
+/* Expands the dropdown on hover (desktop) or click (JS toggle active) */
+.dropdown:hover .dropdown-content,
+.dropdown.active .dropdown-content {
+    max-height: 400px;
+}
+
+/* ==================================================
+   5. PAGE SECTIONS & LAYOUTS
+   ================================================== */
 .hero-mural {
     width: 100%;
 }
@@ -262,9 +298,7 @@ a:hover {
     color: var(--primary);
 }
 
-/* ==================================================
-   UP-STYLE ASYMMETRICAL GRID LAYOUT 
-   ================================================== */
+/* UP-Style Asymmetrical Grid Base */
 .news-section, .events-section {
     padding: 60px 0;
 }
@@ -286,14 +320,13 @@ a:hover {
     padding-bottom: 10px;
 }
 
-/*Asymmetrical Container */
 .up-layout-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 30px;
 }
 
-/* Left Side: Massive Card */
+/* Featured Large Card (Left) */
 .featured-card {
     background: var(--bg-card);
     border-radius: 8px;
@@ -329,7 +362,7 @@ a:hover {
     margin-bottom: 20px;
 }
 
-/* Right Side: Stacked/Grid Cards */
+/* Small Cards Grid (Right) */
 .side-cards-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -434,7 +467,9 @@ a:hover {
     width: 80px;
 }
 
-/* Footer */
+/* ==================================================
+   6. FOOTER & UI COMPONENTS
+   ================================================== */
 .site-footer {
     background-color: var(--primary);
     color: var(--text-light);
@@ -477,7 +512,7 @@ a:hover {
     font-size: 1.2rem;
     cursor: pointer;
     opacity: 0;
-    pointer-events: none;
+    pointer-events: none; /* Disables clicking while hidden */
     transition: var(--transition);
     z-index: 999;
 }
@@ -488,28 +523,99 @@ a:hover {
 }
 
 /* ==================================================
-   MOBILE OVERRIDES (Strictly fixes wobble)
+   7. MOBILE OVERRIDES (Max-width 768px)
    ================================================== */
 @media (max-width: 768px) {
-    .top-bar-grid, .header-grid, .banner-grid, .up-layout-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-grid {
-        justify-content: flex-start;
-        flex-direction: column;
-        gap: 10px;
-    }
-
+    /* Collapse all complex grids into single columns */
+    .top-bar-grid, 
+    .banner-grid, 
+    .up-layout-grid,
     .small-card {
         grid-template-columns: 1fr;
     }
+    
+    /* Header layout for Hamburger Menu */
+    .header-grid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
 
+    .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Style and show the Hamburger button */
+    .mobile-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1000;
+    }
+
+    .mobile-toggle .bar {
+        width: 25px;
+        height: 3px;
+        background-color: var(--primary);
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+
+    /* Hide the Nav behind max-height for slide animation */
+    .nav-grid {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-nav);
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        box-shadow: var(--shadow);
+    }
+
+    /* JS adds this class to expand the menu */
+    .nav-grid.show-menu {
+        max-height: 500px;
+        padding: 20px 0;
+    }
+
+    /* Make dropdowns push content down instead of overlapping */
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: var(--bg-section);
+        min-width: 100%;
+        text-align: center;
+    }
+
+    /* Adjust image heights for mobile viewport */
     .small-card img {
         height: 200px;
     }
 
     .featured-card img {
         height: 250px;
+    }
+
+    /* Ensure scroll up button doesn't clip off small screens */
+    #scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        z-index: 9999;
     }
 }
