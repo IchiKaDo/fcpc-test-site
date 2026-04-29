@@ -1,64 +1,109 @@
-// 1. Dark Mode Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const htmlEl = document.documentElement;
-
-themeToggle.addEventListener('click', () => {
-    const currentTheme = htmlEl.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    htmlEl.setAttribute('data-theme', newTheme);
-    themeToggle.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+document.addEventListener('DOMContentLoaded', () => {
+    initThemeToggle();
+    initScrollToTop();
+    initScrollAnimations();
+    initMobileNav();
+    initDropdowns();
 });
 
-// 2. Scroll To Top Button Logic
-const scrollTopBtn = document.getElementById('scroll-top');
+function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
+    if (!toggle || !htmlEl) return;
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('show');
-    } else {
-        scrollTopBtn.classList.remove('show');
-    }
-});
+    const savedTheme = localStorage.getItem('theme') || 
+                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    
+    htmlEl.setAttribute('data-theme', savedTheme);
+    toggle.textContent = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
 
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+    toggle.addEventListener('click', () => {
+        const newTheme = htmlEl.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        htmlEl.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        toggle.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+}
 
-// 3. Scroll Animations (Intersection Observer)
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+function initScrollToTop() {
+    const btn = document.getElementById('scroll-top');
+    if (!btn) return;
+
+    let isScrolling = false;
+
+    window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                btn.classList.toggle('show', window.scrollY > 300);
+                isScrolling = false;
+            });
+            isScrolling = true;
         }
     });
-}, { threshold: 0.1 });
 
-document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-    observer.observe(el);
-});
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
+function initScrollAnimations() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    if (!elements.length) return;
 
-// New lines here
+    const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observerInstance.unobserve(entry.target); 
+            }
+        });
+    }, { rootMargin: '0px', threshold: 0.1 });
 
-// CHANGED: 4. Mobile Navigation Menu Toggle Logic
-const mobileToggle = document.querySelector('.mobile-toggle');
-const navGrid = document.querySelector('.nav-grid');
+    elements.forEach(el => observer.observe(el));
+}
 
-mobileToggle.addEventListener('click', () => {
-    // Toggles the visibility of the nav menu
-    navGrid.classList.toggle('show-menu');
-});
+function initMobileNav() {
+    const toggle = document.querySelector('.mobile-toggle');
+    const navGrid = document.querySelector('.nav-grid');
+    if (!toggle || !navGrid) return;
 
-// CHANGED: 5. Mobile Dropdown Interaction Logic
-const dropdowns = document.querySelectorAll('.dropdown');
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        const isOpen = navGrid.classList.toggle('show-menu');
+        toggle.setAttribute('aria-expanded', isOpen);
+    });
 
-dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('click', (e) => {
-        // Prevent the click from immediately closing if clicking inside the link
-        if(e.target.tagName !== 'A') {
-            e.preventDefault(); 
-            // Toggle the 'active' class to rotate caret and expand content
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navGrid.classList.contains('show-menu') && 
+            !navGrid.contains(e.target) && 
+            !toggle.contains(e.target)) {
+            
+            navGrid.classList.remove('show-menu');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+function initDropdowns() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    if (!dropdowns.length) return;
+
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', (e) => {
+            const trigger = e.target.closest('.dropdown-trigger');
+            if (!trigger) return;
+
+            e.preventDefault();
+            
+            // Auto-close other open dropdowns
+            dropdowns.forEach(other => {
+                if (other !== dropdown && other.classList.contains('active')) {
+                    other.classList.remove('active');
+                }
+            });
+
             dropdown.classList.toggle('active');
-        }
+        });
     });
-});
+}
