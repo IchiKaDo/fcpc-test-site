@@ -1,6 +1,8 @@
 /* ==================================================
    1. VARIABLES & THEMING
    ================================================== */
+
+/* Reusable Global Color Variables */
 :root {
     --primary: #002366;
     --secondary: #004aad;
@@ -23,10 +25,11 @@
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark Theme Reusable Colors */
 [data-theme="dark"] {
-    --primary: #013999;
+    --primary: #3d6fc5;
     --secondary: #4084fa;
-    --bg-main: #0f172a;
+    --bg-main: #23355f;
     --bg-section: #1e293b;
     --bg-card: #1e293b;
     --bg-nav: #1e293b;
