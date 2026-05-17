@@ -58,7 +58,6 @@ body {
 
 /* Prevents horizontal scrolling/wobbling on narrow mobile devices */
 .site-wrapper {
-    /* overflow-x: hidden; */
     width: 100%;
 }
 
@@ -189,7 +188,7 @@ a:hover {
     color: var(--text-muted);
 }
 
-.nav-grid {
+.nav-flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -197,7 +196,7 @@ a:hover {
     list-style: none;
 }
 
-.nav-grid a {
+.nav-flex a {
     font-weight: 600;
     font-size: 0.95rem;
 }
@@ -215,7 +214,7 @@ a:hover {
     font-weight: bold;
 }
 
-.drop-label:hover {
+.dropdown-label:hover {
     color: var(--accent);
 }
 
@@ -572,7 +571,7 @@ a:hover {
     }
 
     /* Hide the Nav behind max-height for slide animation */
-    .nav-grid {
+    .nav-flex {
         position: absolute;
         top: 100%;
         left: 0;
@@ -589,7 +588,7 @@ a:hover {
     }
 
     /* JS adds this class to expand the menu */
-    .nav-grid.show-menu {
+    .nav-flex.show-menu {
         max-height: 500px;
         padding: 20px 0;
     }

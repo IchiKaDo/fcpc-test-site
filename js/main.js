@@ -64,7 +64,7 @@ function initScrollAnimations() {
 
 function initMobileNav() {
     const toggle = document.querySelector('.mobile-toggle');
-    const navGrid = document.querySelector('.nav-grid');
+    const navGrid = document.querySelector('.nav-flex');
     if (!toggle || !navGrid) return;
 
     toggle.addEventListener('click', (e) => {
@@ -91,7 +91,7 @@ function initDropdowns() {
 
     dropdowns.forEach(dropdown => {
         dropdown.addEventListener('click', (e) => {
-            const trigger = e.target.closest('.dropdown-trigger');
+            const trigger = e.target.closest('.dropdown-label');
             if (!trigger) return;
 
             e.preventDefault();
