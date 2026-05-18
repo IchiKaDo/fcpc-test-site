@@ -1,10 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    initThemeToggle();
-    initScrollToTop();
-    initScrollAnimations();
-    initMobileNav();
-    initDropdowns();
-});
 
 function initThemeToggle() {
     const toggle = document.getElementById('theme-toggle');

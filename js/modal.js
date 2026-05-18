@@ -1,19 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("imageModalImg");
-
-    const images = document.querySelectorAll(".modal-trigger");
     const closeButtons = document.querySelectorAll("[data-close-modal]");
 
-    // Open modal
-    images.forEach((img) => {
-        img.addEventListener("click", () => {
-            modalImg.src = img.src;
+    document.addEventListener("click", (event) => {
+        const clickedElement = event.target;
+
+        if (clickedElement && clickedElement.classList.contains("modal-trigger")) {
+            modalImg.src = clickedElement.src;
             modal.classList.add("show");
-        });
+            console.log("Modal opened for:", clickedElement.src);
+        }
     });
 
-    // Close modal
     closeButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
             modal.classList.remove("show");
