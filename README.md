@@ -10,6 +10,7 @@
 
 ## Some Features
 * **Sticky Navigation:** Stays at the top on both Mobile and PC.
+* **Reusable/DRY** code via JS HTML injection
 * **Responsive Design:** Optimized for iPhone SE up to Desktop.
 * **Animated Menus:** Smooth `max-height` transitions on dropdowns.
 
@@ -17,4 +18,4 @@
 **いちKaDo**
 
 * Still learning, please critique me
-* All of this are what my current knowledge holds with some beyond mine just before this project(had to learn GRID)
+* All of this are what my current knowledge holds with some beyond mine just before this project(had to learn GRID), AI assisted work(Mostly me)

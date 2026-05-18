@@ -7,66 +7,12 @@
     <link rel="icon" href="./images/logo_fcpc.jpg" type="image/jpg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="js/inject-layout.js" defer></script>
 </head>
 
 <body>
     <div class="site-wrapper"> <!-- Essentially For Hiding The Overflow For Both Desktop and Mobile(The FCPC site overflows on Mobile) -->
-        
-        <div class="top-bar">
-            <div class="container top-bar-grid">
-                <div class="contact-info">
-                    <span>📞 +63 917 777 5989</span>
-                    <span><a class="info-links" href="#">✉️ info@fcpc.edu.ph</a></span>
-                </div>
-                <div class="top-actions">
-                    <button id="theme-toggle" class="btn-theme">🌙 Dark Mode</button>
-                    <a href="#" class="btn-enroll-yellow">Enroll Now!</a>
-                </div>
-            </div>
-        </div>
-
-<header class="main-header">
-    <div class="container header-grid">
-        <div class="logo-area">
-            <img src="./images/logo_fcpc.jpg" alt="FCPC Logo" class="header-logo modal-trigger">
-            <div class="logo-text-box">
-                <a href="#"><h1 class="logo-text">FCPC</h1></a>
-                <span class="logo-subtext">First City Providential College</span>
-            </div>
-        </div>
-        
-        <button class="mobile-toggle" aria-label="Toggle navigation">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        
-        <nav class="main-nav">
-            <ul class="nav-flex">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <span class="dropdown-label">About <span class="caret">▾</span></span>
-                    <div class="dropdown-content">
-                        <a href="vision_and_mission.html">Vision and Mission</a>
-                        <a href="goals_and_objective.html">Goals and Objective</a>
-                        <a href="loyalty_hymm.html">Loyalty Hymn</a>
-                        <a href="creed.html">FCPCian's Creed</a>
-                        <a href="core_values.html">Core Values</a>
-                    </div>
-                </li>
-                <li><a href="programs.html">Programs</a></li>
-                <li><a href="legacy.html">The Legacy</a></li>
-                <li class="dropdown">
-                    <span class="dropdown-label">Admission <span class="caret">▾</span></span>
-                    <div class="dropdown-content">
-                        <a href="local_admission.html">Local Admission</a>
-                    </div>
-                </li>
-                <li><a href="international_students.html">International Students</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+        <div id="navbar-placeholder"></div>
 
         <main>
             <section class="hero-mural">
@@ -85,8 +31,6 @@
                     </div>
                 </div>
             </section>
-
-<!-- News Section Starts here -->
 
             <section class="news-section">
                 <div class="container">
@@ -134,8 +78,6 @@
                 </div>
             </section>
 
-<!-- Events Section Starts here -->
-
             <section class="events-section">
                 <div class="container">
                     <h2 class="section-title text-left">EVENTS</h2>
@@ -177,30 +119,7 @@
                 </div>
             </section>
         </main>
-
-<!-- Footer Starts Here -->
-
-        <footer class="site-footer">
-            <div class="container footer-grid">
-                <div class="footer-brand">
-                    <img src="./images/logo_fcpc.jpg" alt="Footer Logo" class="footer-logo modal-trigger">
-                    <h4>First City Providential College</h4>
-                    <p>City of San Jose del Monte,<br>Bulacan, Philippines</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Useful Links</h4>
-                    <a class="info-links" href="#">Associate Portal</a>
-                    <a class="info-links" href="#">ESS Portal</a>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p>📞 +63 917 777 5989</p>
-                    <a class="info-links" href="index.html#"><p>✉️ info@fcpc.edu.ph</p></a>
-                </div>
-            </div>
-        </footer>
-        <button id="scroll-top" aria-label="Scroll to top">↑</button> <!-- This button takes you to the top of the page -->
-    </div>
+    <div id="footer-placeholder"></div>
     <div id="imageModal" class="image-modal">
         <div class="image-modal__backdrop" data-close-modal></div>
 
